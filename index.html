@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Registrazione</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating-note {
+            animation: float 3s ease-in-out infinite;
+        }
+        .form-container {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-blue-100 to-blue-300 flex flex-col items-center justify-center p-4">
+    <div class="w-full max-w-md">
+        <div class="text-center mb-6">
+            <i class="fas fa-music text-blue-500 text-6xl floating-note"></i>
+            <h1 class="text-3xl font-bold text-blue-800 mt-4">Piattaforma Consigli Musicali</h1>
+            <p class="text-blue-600 mt-2">Perditi in della nuova musica</p>
+        </div>
+
+        <div id="registrationForm" class="form-container rounded-xl shadow-2xl p-8 bg-white/90">
+            <form id="musicForm" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-blue-800">Nome</label>
+                    <input type="text" id="name" name="name" required 
+                           class="mt-1 block w-full px-4 py-2 border border-blue-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <div>
+                    <label for="email" class="block text-sm font-medium text-blue-800">Email</label>
+                    <input type="email" id="email" name="email" required 
+                           class="mt-1 block w-full px-4 py-2 border border-blue-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <div class="mb-4">
+                    <label for="password" class="block text-sm font-medium text-blue-800">Password:</label>
+                    <input type="password" id="password" name="password" class="mt-1 block w-full px-4 py-2 border border-blue-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-blue-800">Generi Preferiti</label>
+                    <div class="mt-2 grid grid-cols-2 gap-2">
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" name="genres" value="Pop" class="rounded text-blue-600">
+                            <span class="ml-2 text-blue-700">Pop</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" name="genres" value="Rock" class="rounded text-blue-600">
+                            <span class="ml-2 text-blue-700">Rock</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" name="genres" value="Hip-Hop" class="rounded text-blue-600">
+                            <span class="ml-2 text-blue-700">Hip-Hop</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" name="genres" value="Electronic" class="rounded text-blue-600">
+                            <span class="ml-2 text-blue-700">Elettronica</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" name="genres" value="Jazz" class="rounded text-blue-600">
+                            <span class="ml-2 text-blue-700">Jazz</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" name="genres" value="Classical" class="rounded text-blue-600">
+                            <span class="ml-2 text-blue-700">Classica</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" name="genres" value="Classical" class="rounded text-blue-600">
+                            <span class="ml-2 text-blue-700">R&B</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" name="genres" value="Classical" class="rounded text-blue-600">
+                            <span class="ml-2 text-blue-700">Indie</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="mood" class="block text-sm font-medium text-blue-800">Mood Attuale</label>
+                    <select id="mood" name="mood" required
+                            class="mt-1 block w-full px-4 py-2 border border-blue-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                        <option value="happy">😊 Felice</option>
+                        <option value="sad">😢 Triste</option>
+                        <option value="energetic">⚡ Energetico</option>
+                        <option value="relaxed">🌿 Rilassato</option>
+                        <option value="focused">🧠 Concentrato</option>
+                        <option value="nostalgic">🕰️ Nostalgico</option>
+                    </select>
+                </div>
+
+                <button type="submit" 
+                        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300">
+                    Invia Preferenze
+                </button>
+            </form>
+
+                    <p class="mt-4 text-center text-blue-700">Hai già un account? <a href="#" id="showLoginForm" class="text-blue-500 hover:underline">Accedi qui</a></p>
+                </form>
+            </div>
+
+        <div id="loginForm" class="form-container rounded-xl shadow-2xl p-8 bg-white/90 hidden">
+            <h2 class="text-2xl font-bold text-blue-800 mb-6 text-center">Accedi al tuo Account</h2>
+            <form id="loginMusicForm" class="space-y-6">
+                <div>
+                    <label for="loginEmail" class="block text-sm font-medium text-blue-800">Email</label>
+                    <input type="email" id="loginEmail" name="loginEmail" required 
+                           class="mt-1 block w-full px-4 py-2 border border-blue-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <div>
+                    <label for="loginPassword" class="block text-sm font-medium text-blue-800">Password</label>
+                    <input type="password" id="loginPassword" name="loginPassword" required 
+                           class="mt-1 block w-full px-4 py-2 border border-blue-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                </div>
+
+                <button type="submit" 
+                        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition duration-300">
+                    Accedi
+                </button>
+            </form>
+            <p class="mt-4 text-center text-blue-700">Non hai un account? <a href="#" id="showRegisterForm" class="text-blue-500 hover:underline">Registrati qui</a></p>
+        </div>
+
+        <div id="actionButtons" class="hidden mt-6 flex flex-col sm:flex-row gap-4">
+            <button id="newSuggestionsBtn" 
+                    class="flex-1 py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition duration-300">
+                <i class="fas fa-random mr-2"></i> Dammi Nuovi Consigli!
+            </button>
+            <button id="viewSuggestionsBtn" 
+                    class="flex-1 py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-300">
+                <i class="fas fa-list mr-2"></i> Mostra Consigli
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function clearAuthTokens() {
+            localStorage.removeItem('accessToken');
+            localStorage.removeItem('idToken');
+            localStorage.removeItem('refreshToken');
+            localStorage.removeItem('userEmail');
+            console.log('Token di autenticazione puliti.');
+        }
+
+        async function refreshAuthTokens() {
+            const refreshToken = localStorage.getItem('refreshToken');
+            const userEmail = localStorage.getItem('userEmail');
+
+            if (!refreshToken || !userEmail) {
+                console.error('Nessun refresh token o email trovati per il refresh.');
+                clearAuthTokens();
+                return false; 
+            }
+
+            try {
+                const response = await fetch('http://localhost:8080/api/auth/refresh', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ refreshToken, email: userEmail })
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    console.log('Token rinfrescati con successo:', result);
+                    localStorage.setItem('accessToken', result.AuthenticationResult.AccessToken);
+                    localStorage.setItem('idToken', result.AuthenticationResult.IdToken);
+                    if (result.AuthenticationResult.RefreshToken) { 
+                        localStorage.setItem('refreshToken', result.AuthenticationResult.RefreshToken);
+                    }
+                    return true; 
+                } else {
+                    console.error('Errore nel refresh del token:', result.error);
+                    clearAuthTokens(); 
+                    return false; 
+                }
+            } catch (error) {
+                console.error('Errore di rete durante il refresh:', error);
+                clearAuthTokens(); 
+                return false; 
+            }
+        }
+
+        async function authenticatedFetch(url, options = {}) {
+            let accessToken = localStorage.getItem('accessToken');
+            const headers = options.headers || {};
+
+            if (accessToken) {
+                headers['Authorization'] = `Bearer ${accessToken}`;
+            }
+            options.headers = headers;
+
+            let response = await fetch(url, options);
+
+            if (response.status === 401 && !url.includes('/api/auth/refresh')) {
+                console.log('Access token scaduto o non valido. Tentativo di refresh...');
+                const refreshSuccessful = await refreshAuthTokens();
+
+                if (refreshSuccessful) {
+                    accessToken = localStorage.getItem('accessToken'); 
+                    options.headers['Authorization'] = `Bearer ${accessToken}`;
+                    response = await fetch(url, options); 
+                } else {
+                    alert('La sessione è scaduta. Effettua nuovamente il login.');
+                    clearAuthTokens();
+                    window.location.href = '/'; 
+                    return response; 
+                }
+            }
+            return response;
+        }
+
+        document.getElementById('showLoginForm').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('registrationForm').classList.add('hidden');
+            document.getElementById('loginForm').classList.remove('hidden');
+            document.getElementById('actionButtons').classList.add('hidden');
+        });
+
+        document.getElementById('showRegisterForm').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('loginForm').classList.add('hidden');
+            document.getElementById('registrationForm').classList.remove('hidden');
+            document.getElementById('actionButtons').classList.add('hidden');
+        });
+
+        document.getElementById('musicForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                genres: Array.from(document.querySelectorAll('input[name="genres"]:checked')).map(el => el.value),
+                mood: document.getElementById('mood').value
+            };
+
+            if (formData.genres.length === 0) {
+                alert('Seleziona almeno un genere musicale preferito.');
+                return;
+            }
+
+            console.log('Form di registrazione inviato:', formData);
+
+            try {
+                const response = await fetch('http://localhost:8080/api/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    alert('Registrazione completata con successo! Ora puoi accedere.');
+                    console.log('Registrazione Successo:', data);
+                    document.getElementById('registrationForm').classList.add('hidden');
+                    document.getElementById('loginForm').classList.remove('hidden');
+                } else {
+                    alert('Errore durante la registrazione: ' + (data.error || 'Errore sconosciuto'));
+                    console.error('Registrazione Errore:', data);
+                }
+            } catch (error) {
+                console.error('Errore di rete o server durante la registrazione:', error);
+                alert('Impossibile connettersi al server per la registrazione. Assicurati che il backend sia in esecuzione.');
+            }
+        });
+
+        document.getElementById('loginMusicForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const loginFormData = {
+                email: document.getElementById('loginEmail').value,
+                password: document.getElementById('loginPassword').value
+            };
+
+            console.log('Form di login inviato:', loginFormData);
+
+            try {
+                const response = await fetch('http://localhost:8080/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(loginFormData)
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    alert('Accesso riuscito! Benvenuto/a!');
+                    console.log('Login Successo:', result);
+                    localStorage.setItem('accessToken', result.accessToken); 
+                    localStorage.setItem('idToken', result.idToken);        
+                    localStorage.setItem('refreshToken', result.refreshToken); 
+                    localStorage.setItem('userEmail', loginFormData.email);
+
+                    document.getElementById('loginForm').classList.add('hidden');
+                    document.getElementById('actionButtons').classList.remove('hidden');
+                } else {
+                    alert('Errore durante l\'accesso: ' + (result.error || 'Errore sconosciuto'));
+                    console.error('Login Errore:', result);
+                }
+            } catch (error) {
+                console.error('Errore di rete o server durante il login:', error);
+                alert('Impossibile connettersi al server per il login. Assicurati che il backend sia in esecuzione.');
+            }
+        });
+
+        document.getElementById('newSuggestionsBtn').addEventListener('click', async function() {
+            alert('Cercando nuova musica per le tue orecchie...');
+            try {
+                const response = await authenticatedFetch('http://localhost:8080/api/suggestions/new', { method: 'GET' });
+                const data = await response.json();
+                if (response.ok) {
+                    console.log('Nuovi suggerimenti:', data);
+                    alert('Suggerimenti ricevuti! Controlla la console.');
+                } else {
+                    console.error('Errore nel recupero suggerimenti:', data.error);
+                    alert('Errore nel recupero suggerimenti: ' + (data.error || 'Errore sconosciuto'));
+                }
+            } catch (error) {
+                console.error('Errore fetch suggerimenti:', error);
+                alert('Errore di rete durante il recupero suggerimenti.');
+            }
+        });
+
+        document.getElementById('viewSuggestionsBtn').addEventListener('click', async function() {
+            alert('In attesa di mostrarti la tua nuova musica...');
+            try {
+                const response = await authenticatedFetch('http://localhost:8080/api/suggestions/history', { method: 'GET' });
+                const data = await response.json();
+                if (response.ok) {
+                    console.log('Storico suggerimenti:', data);
+                    alert('Storico suggerimenti ricevuto! Controlla la console.');
+                } else {
+                    console.error('Errore nel recupero storico suggerimenti:', data.error);
+                    alert('Errore nel recupero storico suggerimenti: ' + (data.error || 'Errore sconosciuto'));
+                }
+            } catch (error) {
+                console.error('Errore fetch storico suggerimenti:', error);
+                alert('Errore di rete durante il recupero dello storico.');
+            }
+        });
+
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            clearAuthTokens(); 
+            alert('Logout effettuato con successo!');
+            document.getElementById('actionButtons').classList.add('hidden');
+            document.getElementById('registrationForm').classList.remove('hidden');
+        });
+
+        window.addEventListener('load', function() {
+            const accessToken = localStorage.getItem('accessToken');
+            if (accessToken) {
+                document.getElementById('registrationForm').classList.add('hidden');
+                document.getElementById('loginForm').classList.add('hidden');
+                document.getElementById('actionButtons').classList.remove('hidden');
+            } else {
+                document.getElementById('registrationForm').classList.remove('hidden');
+                document.getElementById('loginForm').classList.add('hidden');
+                document.getElementById('actionButtons').classList.add('hidden');
+            }
+        });
+
+    </script>
+</body>
+</html>
